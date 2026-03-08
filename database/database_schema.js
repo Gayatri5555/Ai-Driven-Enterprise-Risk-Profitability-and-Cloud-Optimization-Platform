@@ -2,6 +2,17 @@
 
 const mongoose = require("mongoose");
 
+const connectDB = async () => {
+  try {
+    await mongoose.connect("mongodb://127.0.0.1:27017/ai_project_risk_platform")
+
+    console.log("MongoDB Connected Successfully")
+  } catch (error) {
+    console.error("MongoDB connection failed:", error)
+    process.exit(1)
+  }
+}
+
 const ProjectSchema = new mongoose.Schema({
   project_name: String,
   client_name: String,
@@ -51,6 +62,7 @@ const AIReportSchema = new mongoose.Schema({
 });
 
 module.exports = {
+  connectDB,
   Project: mongoose.model("Project", ProjectSchema),
   HistoricalProject: mongoose.model("HistoricalProject", HistoricalProjectSchema),
   CloudUsage: mongoose.model("CloudUsage", CloudUsageSchema),
