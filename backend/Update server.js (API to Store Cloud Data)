@@ -1,0 +1,23 @@
+const CloudUsage = require("./cloudUsageModel");
+
+app.post("/addCloudUsage", async (req, res) => {
+
+  try {
+
+    const cloudData = new CloudUsage(req.body);
+    await cloudData.save();
+
+    res.json({
+      message: "Cloud usage data stored successfully",
+      data: cloudData
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: "Error storing cloud data"
+    });
+
+  }
+
+});
