@@ -1,0 +1,13 @@
+{
+  "name": "project-risk-ai",
+  "version": "1.0.0",
+  "description": "Backend for AI Project Risk Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  }
+}
