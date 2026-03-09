@@ -13,8 +13,8 @@ app.use(cors())
 app.use(express.json())
 connectDB();
 
-app.use("/api", projectRoutes)
-app.use("/api", cloudRoutes)
+app.use("/api/analyze", projectRoutes)
+app.use("/api/cloud", cloudRoutes)
 
 
 app.get("/", (req, res) => {
